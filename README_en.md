@@ -49,4 +49,4 @@ You can email me or submit an issue, I'll carefully read it!
 
 #Write At Last 写在最后
 我还没有很好地掌握英语。如果出现语法错误，请多包涵！
-Please Pardon me when I make English grammar mistakes,because I'm not very good at English yet.😂
+Please Pardon me when I make English grammar mistakes,because I'm not very good at English.😂
