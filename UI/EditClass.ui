@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>320</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>320</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>15</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>634</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <property name="spacing">
+         <number>1</number>
+        </property>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMinAndMaxSize</enum>
+        </property>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QToolButton" name="addButton">
+                  <property name="toolTip">
+                   <string>增加班级</string>
+                  </property>
+                  <property name="statusTip">
+                   <string>增加班级</string>
+                  </property>
+                  <property name="text">
+                   <string>增加班级</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>icons/friend_add_fill.svg</normaloff>icons/friend_add_fill.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="checkable">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QToolButton" name="delButton">
+                  <property name="toolTip">
+                   <string>删除当前班级</string>
+                  </property>
+                  <property name="statusTip">
+                   <string>删除当前班级</string>
+                  </property>
+                  <property name="text">
+                   <string>删除当前班级</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>icons/Trash_bin.svg</normaloff>icons/Trash_bin.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>请先在下方选择班级</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QListView" name="listView"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>然后在下方输入或粘贴人名，每行一个</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>可以直接粘贴Excel中的人名</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPlainTextEdit" name="NamesText"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="PromptLabel">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>请在左边选择一个班级或添加班级</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>保存（编辑完每个班都要点一下）</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>412</width>
+    <height>222</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>300</width>
+    <height>192</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>HarmonyOS Sans SC</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>点名器</string>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="NameButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>290</width>
+          <height>130</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>HarmonyOS Sans SC</family>
+          <pointsize>50</pointsize>
+         </font>
+        </property>
+        <property name="statusTip">
+         <string>这个按钮用来点名。</string>
+        </property>
+        <property name="text">
+         <string>点我点名</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="changeBall">
+        <property name="text">
+         <string>切换小窗</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>412</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSeq">
+    <property name="title">
+     <string>连点</string>
+    </property>
+    <addaction name="seq2"/>
+    <addaction name="seq5"/>
+    <addaction name="seq10"/>
+    <addaction name="separator"/>
+    <addaction name="seq_custom"/>
+   </widget>
+   <widget class="QMenu" name="menuSetting">
+    <property name="title">
+     <string>设置 </string>
+    </property>
+    <addaction name="changeClass"/>
+    <addaction name="EditClass"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>历史记录</string>
+    </property>
+    <addaction name="Changelog"/>
+    <addaction name="WatchLog"/>
+   </widget>
+   <addaction name="menuSeq"/>
+   <addaction name="menuSetting"/>
+   <addaction name="menu"/>
+  </widget>
+  <action name="seq5">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/icon_5.svg</normaloff>icons/icon_5.svg</iconset>
+   </property>
+   <property name="text">
+    <string>连点5个</string>
+   </property>
+   <property name="statusTip">
+    <string>连续点五个人一起显示，然后保存刚刚点的。</string>
+   </property>
+  </action>
+  <action name="seq2">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/icon_2.svg</normaloff>icons/icon_2.svg</iconset>
+   </property>
+   <property name="text">
+    <string>连点2个</string>
+   </property>
+   <property name="statusTip">
+    <string>连续点两个人一起显示，然后保存刚刚点的。</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>HarmonyOS Sans SC</family>
+    </font>
+   </property>
+  </action>
+  <action name="seq10">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/icon_10.svg</normaloff>icons/icon_10.svg</iconset>
+   </property>
+   <property name="text">
+    <string>连点10个</string>
+   </property>
+   <property name="statusTip">
+    <string>连续点十个人一起显示，然后保存刚刚点的。</string>
+   </property>
+  </action>
+  <action name="seq_custom">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/inf.svg</normaloff>icons/inf.svg</iconset>
+   </property>
+   <property name="text">
+    <string>自定义个数……</string>
+   </property>
+   <property name="statusTip">
+    <string>连续点好多个人（个数随意）一起显示，然后保存刚刚点的。</string>
+   </property>
+  </action>
+  <action name="changeClass">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/exchange.svg</normaloff>icons/exchange.svg</iconset>
+   </property>
+   <property name="text">
+    <string>换班级</string>
+   </property>
+   <property name="toolTip">
+    <string>换班级范围。可以一次点几个班</string>
+   </property>
+   <property name="statusTip">
+    <string>在已经添加好的那几个班之中选现在想点的范围。</string>
+   </property>
+  </action>
+  <action name="EditClass">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/Edit.svg</normaloff>icons/Edit.svg</iconset>
+   </property>
+   <property name="text">
+    <string>编辑/新建班级</string>
+   </property>
+   <property name="iconText">
+    <string>编辑班级</string>
+   </property>
+   <property name="toolTip">
+    <string>添加、删除、编辑班级</string>
+   </property>
+   <property name="statusTip">
+    <string>可以把已添加好的班级改名单，或者新建、删除班级</string>
+   </property>
+  </action>
+  <action name="Changelog">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/record-rec.svg</normaloff>icons/record-rec.svg</iconset>
+   </property>
+   <property name="text">
+    <string>关闭/开启记录</string>
+   </property>
+   <property name="statusTip">
+    <string>改变是否给每次点名记录下来</string>
+   </property>
+  </action>
+  <action name="WatchLog">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/folder-view.svg</normaloff>icons/folder-view.svg</iconset>
+   </property>
+   <property name="text">
+    <string>查看记录</string>
+   </property>
+   <property name="statusTip">
+    <string>看一看之前和现在的记录</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
