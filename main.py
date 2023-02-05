@@ -8,13 +8,14 @@ from typing import List
 from functools import partial
 from sys import exit
 from ball import MainWindow
+from qt_material import apply_stylesheet
 
 def changeDir():
     """切换工作目录"""
     from os import sep,chdir
-    from sys import argv
+    from sys import argv,exit
     chdir(sep.join(argv[0].split(sep)[:-1]))
-changeDir()
+#changeDir()
 QCoreApplication.setAttribute(Qt.AA_EnableHighDpiScaling)
 app=QApplication([])
 ball=MainWindow()#小窗
@@ -24,6 +25,7 @@ def handle_JSON_Error(filename:str):
     from os import remove
     remove(filename)
     QMessageBox.critical(main.ui,'错误',f'{filename}文件似乎被人损坏了。请重新启动我这个程序')
+    exit(1)
 def getNames(outError:bool=True):
     '''names的定义
     outError:输出不输出提示'''
@@ -63,12 +65,13 @@ def getIsLog()-> bool:
         with open('./settings/settings.json',encoding='utf-8') as f:
             isLog=load(f)['log']
             if isLog:
-                logger.add('.\log\点名记录_{time:MM-DD HH-mm}.log',format='<green>{time:MM-DD HH:mm:ss}</green>--<level>{message}</level>',rotation='1 day',retention='1 month')
+                logger.add('.\\log\\点名记录_{time:MM-DD HH-mm}.log',format='<green>{time:MM-DD HH:mm:ss}</green>--<level>{message}</level>',rotation='1 day',retention='1 month')
             return isLog
     except (KeyError,FileNotFoundError):#未指定
         main.ui.statusbar.showMessage('已默认开启点名记录功能，点下的名会存下来。可以自己关闭。')
         with open('./settings/settings.json',encoding='utf-8',mode='w') as f:
             dump({'log':True},f, ensure_ascii=False)
+        return True
     except JSONDecodeError:#编码错误
         handle_JSON_Error('./settings/settings.json')
 
@@ -105,6 +108,22 @@ class MainWindow:
         self.ui.EditClass.triggered.connect(self.editClass)
         #切换小窗
         self.ui.changeBall.clicked.connect(self.changeBall)
+        #全局字体
+        self.ui.setStyleSheet('''QLabel,
+QLineEdit,
+QRadioButton,
+QComboBox,
+QCheckBox,
+QPushButton,
+QGroupBox,
+QTableView,
+QTableWidget,
+QHeaderView::section,
+QMenu,
+QMenu::item/*表头样式*/
+{
+    font-family: "HarmonyOS Sans SC";
+}''')
     def next(self,showResult: bool=True) -> str:
         """点名并记录日志"""
         if len(names) == 0:#没有设置范围
@@ -115,7 +134,7 @@ class MainWindow:
         if isLog:
             logger.info(name)
         if showResult:
-            self.ui.NameButton.setStyleSheet(f"background-color:{randomColor()}")
+            self.ui.NameButton.setStyleSheet(f"background-color:{randomColor()};font-size:50px")
             self.ui.NameButton.setText(name)
         return name
     def many(self,n:int) -> None:
@@ -149,7 +168,7 @@ class MainWindow:
         isLog=False if old else True#反过来
         old_set["log"] = isLog
         with open('./settings/settings.json',encoding='utf-8',mode='w') as f:
-            dump(old_set,f, ensure_ascii=False)
+            dump(old_set,f, ensure_ascii=False,indent=4)
         QMessageBox.about(self.ui,'成功',f"已切换为{''if isLog else '不'}显示日志")
         return isLog
     def openLogPath(self):
@@ -263,6 +282,7 @@ class EditWindow:
         """从左侧选栏之后把右侧的改过来"""
         #允许编辑
         self.ui.NamesText.setEnabled(True)
+        self.saveResult()
         nowName=self.ui.listView.selectionModel().selectedIndexes()[0].data()
         if nowName == self.edit_class_name:#防止刚保存完就点自己
             return
@@ -292,5 +312,6 @@ getIsLog()
 if isLog:
     logger.add('.\日志\点名记录_{time:MM-DD HH-mm}（可删除）.log',format='<green>{time:MM-DD HH:mm:ss}</green>--<level>{message}</level>',rotation='1 day',retention='1 month')
 ball.ui.toolButton.clicked.connect(main.changeThis)
+apply_stylesheet(app,'dark_teal.xml')
 main.ui.show()
 exit(app.exec_())

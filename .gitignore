@@ -3,3 +3,6 @@ build/
 __pacache__/
 log/*
 /main.spec
+venv/
+log/
+dist/
