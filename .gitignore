@@ -9,3 +9,6 @@ venv/
 settings/name_sheet.json
 settings/settings.json
 settings/waiting.json
+venv/
+log/
+dist/

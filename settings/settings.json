@@ -1,1 +1,7 @@
-{"log": true, "choose": ["class2", "class1"]}
+{
+    "log": true,
+    "choose": [
+        "class2",
+        "class1"
+    ]
+}

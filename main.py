@@ -397,5 +397,6 @@ if isLog:
     logger.add('.\日志\点名记录_{time:MM-DD HH-mm}（可删除）.log',
                format='<green>{time:MM-DD HH:mm:ss}</green>--<level>{message}</level>', rotation='1 day', retention='1 month')
 ball.ui.toolButton.clicked.connect(main.changeThis)
+apply_stylesheet(app, 'dark_teal.xml')
 main.ui.show()
 exit(app.exec_())
