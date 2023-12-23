@@ -3,3 +3,9 @@ build/
 __pacache__/
 log/*
 /main.spec
+日志/
+venv/
+点名器.code-workspace
+settings/name_sheet.json
+settings/settings.json
+settings/waiting.json

@@ -59,13 +59,26 @@
          </font>
         </property>
         <property name="statusTip">
-         <string>这个按钮用来点名。</string>
+         <string/>
         </property>
         <property name="text">
          <string>点我点名</string>
         </property>
         <property name="autoDefault">
          <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="reset">
+        <property name="toolTip">
+         <string>重置所有名单</string>
+        </property>
+        <property name="text">
+         <string>重置</string>
+        </property>
+        <property name="length" stdset="0">
+         <number>0</number>
         </property>
        </widget>
       </item>
@@ -87,7 +100,7 @@
      <x>0</x>
      <y>0</y>
      <width>412</width>
-     <height>24</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSeq">
